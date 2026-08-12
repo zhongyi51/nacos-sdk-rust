@@ -69,6 +69,8 @@ impl ConfigWorker {
             ))
             .auth_plugin(auth_plugin)
             .auth_context(client_props.get_auth_context())
+            .request_timeout(client_props.get_request_timeout())
+            .optional_connect_timeout(client_props.get_connect_timeout())
             .max_retries(client_props.get_max_retries())
             .emergency_start(client_props.get_config_load_cache_at_start())
             .build(client_id)

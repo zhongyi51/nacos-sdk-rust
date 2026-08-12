@@ -187,6 +187,11 @@ impl NacosGrpcClientBuilder {
         self
     }
 
+    pub(crate) fn request_timeout(mut self, timeout: Option<Duration>) -> Self {
+        self.grpc_config.timeout = timeout;
+        self
+    }
+
     pub(crate) fn concurrency_limit(mut self, concurrency_limit: usize) -> Self {
         self.grpc_config.concurrency_limit = Some(concurrency_limit);
         self
@@ -234,6 +239,11 @@ impl NacosGrpcClientBuilder {
 
     pub(crate) fn connect_timeout(mut self, connect_timeout: Duration) -> Self {
         self.grpc_config.connect_timeout = Some(connect_timeout);
+        self
+    }
+
+    pub(crate) fn optional_connect_timeout(mut self, connect_timeout: Option<Duration>) -> Self {
+        self.grpc_config.connect_timeout = connect_timeout;
         self
     }
 
